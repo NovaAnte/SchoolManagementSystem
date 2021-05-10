@@ -23,6 +23,14 @@ public class Education {
     @OneToMany(mappedBy = "education")
     private List<Student> students;
 
+    public Education() {
+    }
+
+    public Education(String name, String totalcredit) {
+        this.name = name;
+        this.totalcredit = totalcredit;
+    }
+
     public int getId() {
         return id;
     }
@@ -87,6 +95,11 @@ public class Education {
     public void removeStudent(Student student) {
         getStudents().remove(student);
         student.setEducation(null);
+    }
+
+    @Override
+    public String toString() {
+        return "Education{" + "id=" + id + ", name=" + name + ", totalcredit=" + totalcredit + '}';
     }
 
 }

@@ -23,6 +23,16 @@ public class Student {
     @ManyToOne
     private Education education;
 
+    public Student() {
+    }
+
+    public Student(String name, String gender, int age, String email) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
@@ -70,5 +80,11 @@ public class Student {
     public void setEducation(Education education) {
         this.education = education;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", email=" + email + '}';
+    }
+    
 
 }

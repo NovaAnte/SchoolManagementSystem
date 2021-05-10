@@ -27,6 +27,17 @@ public class Teacher {
     @ManyToMany
     private List<Course> courses;
 
+    public Teacher() {
+    }
+
+    public Teacher(String name, String gender, double salary, int age, String email) {
+        this.name = name;
+        this.gender = gender;
+        this.salary = salary;
+        this.age = age;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
@@ -94,6 +105,11 @@ public class Teacher {
     public void removeCourse(Course course) {
         getCourses().remove(course);
         course.getTeachers().remove(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", salary=" + salary + ", age=" + age + ", email=" + email + '}';
     }
 
 }

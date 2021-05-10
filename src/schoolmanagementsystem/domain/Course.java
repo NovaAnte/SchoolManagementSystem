@@ -24,6 +24,15 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private List<Teacher> teachers;
 
+    public Course() {
+    }
+
+    public Course(String name, String credit) {
+        this.name = name;
+        this.credit = credit;
+    }
+
+
     public int getId() {
         return id;
     }
@@ -73,6 +82,11 @@ public class Course {
 
     public void removeTeacher(Teacher teacher) {
         getTeachers().remove(teacher);
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" + "id=" + id + ", name=" + name + ", credit=" + credit + '}';
     }
 
 }
