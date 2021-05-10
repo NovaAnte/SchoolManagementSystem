@@ -8,17 +8,17 @@ import dao.TeacherFunctions;
 import java.util.Scanner;
 
 public class SchoolManagementSystem {
-    
-    static Scanner sc = new Scanner(System.in);
+
+    public static Scanner sc = new Scanner(System.in);
     static boolean loop = true;
 
     public static void main(String[] args) {
         while (loop) {
             menu();
         }
-        
+
     }
-    
+
     public static void menu() {
         System.out.println("1. Add education");
         System.out.println("2. Update education information");
@@ -51,145 +51,144 @@ public class SchoolManagementSystem {
         System.out.println("29. Show all teacher in course");
         System.out.println("30. Show statistics");
         System.out.println("0. Exit");
-        
+
         int menuChoice = sc.nextInt();
         sc.nextLine();
         switchMenu(menuChoice);
     }
-    
+
     public static void switchMenu(int choice) {
-        
+
         switch (choice) {
             case 1:
                 EducationFunctions.addEducation();
                 break;
-                
+
             case 2:
                 EducationFunctions.updateEducation();
                 break;
-                
+
             case 3:
                 EducationFunctions.showEducationInfo();
                 break;
-                
+
             case 4:
                 EducationFunctions.showAllEducations();
                 break;
-                
+
             case 5:
                 EducationFunctions.removeEducation();
                 break;
-                
+
             case 6:
                 CourseFunctions.addCourse();
                 break;
-                
+
             case 7:
                 CourseFunctions.updateCourse();
                 break;
-                
+
             case 8:
                 CourseFunctions.showCourseInfo();
                 break;
-                
+
             case 9:
                 CourseFunctions.showAllCourses();
                 break;
-                
+
             case 10:
                 CourseFunctions.removeCourse();
                 break;
-                
+
             case 11:
                 StudentFunctions.addStudent();
                 break;
-                
+
             case 12:
                 StudentFunctions.updateStudent();
                 break;
-                
+
             case 13:
                 StudentFunctions.showStudent();
                 break;
-                
+
             case 14:
                 StudentFunctions.showAllStudents();
                 break;
-                
+
             case 15:
                 StudentFunctions.removeStudent();
                 break;
-                
+
             case 16:
                 TeacherFunctions.addTeacher();
                 break;
-                
+
             case 17:
                 TeacherFunctions.updateTeacher();
                 break;
-                
+
             case 18:
                 TeacherFunctions.showTeacher();
                 break;
-                
+
             case 19:
                 TeacherFunctions.showAllTeachers();
                 break;
-                
+
             case 20:
                 TeacherFunctions.removeTeacher();
                 break;
-                
+
             case 21:
                 GenericFunctions.connectCourseToEducation();
                 break;
-                
+
             case 22:
                 GenericFunctions.showAllCoursesInEducation();
                 break;
-                
+
             case 23:
                 GenericFunctions.disconnectCourseFromEducation();
                 break;
-                
+
             case 24:
                 GenericFunctions.connectStudentToEducation();
                 break;
-                
+
             case 25:
                 GenericFunctions.disconnectStudentFromEducation();
                 break;
-                
+
             case 26:
                 GenericFunctions.showAllStudentsInEducation();
                 break;
-                
+
             case 27:
                 GenericFunctions.connectTeacherToCourse();
                 break;
-                
+
             case 28:
                 GenericFunctions.disconnectTeacherFromCourse();
                 break;
-                
+
             case 29:
                 GenericFunctions.showAllTeachersInCourse();
                 break;
-                
+
             case 30:
                 GenericFunctions.showStatistics();
                 break;
-                
+
             case 0:
                 loop = false;
                 break;
-                
-               
+
             default:
                 System.out.println("Invalid choice");
-                
+
         }
-        
+
     }
-    
+
 }
