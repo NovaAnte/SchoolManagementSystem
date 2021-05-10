@@ -1,25 +1,25 @@
 package dao;
 
 public class EducationFunctions {
-
+    static EducationDao educationDao = new EducationDao();
     public static void addEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        educationDao.addEducation();
     }
 
     public static void removeEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        educationDao.removeEducation();
     }
 
     public static void showAllEducations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        educationDao.showAllEducations();
     }
 
     public static void showEducationInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        educationDao.showEducationInfo();
     }
 
     public static void updateEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        educationDao.updateEducation();
     }
     
 }

@@ -2,24 +2,26 @@ package dao;
 
 public class CourseFunctions {
 
+    static CourseDao courseDao = new CourseDao();
+
     public static void removeCourse() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        courseDao.removeCourse();
     }
 
     public static void showAllCourses() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        courseDao.showAllCourses();
     }
 
     public static void showCourseInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        courseDao.showCourseInfo();
     }
 
     public static void updateCourse() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        courseDao.updateCourse();
     }
 
     public static void addCourse() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        courseDao.addCourse();
     }
-    
+
 }

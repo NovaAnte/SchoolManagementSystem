@@ -1,25 +1,25 @@
 package dao;
 
 public class TeacherFunctions {
-
+    static TeacherDao teacherDao = new TeacherDao();
     public static void removeTeacher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        teacherDao.removeTeacher();
     }
 
     public static void showAllTeachers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        teacherDao.showAllTeachers();
     }
 
     public static void showTeacher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        teacherDao.showTeacher();
     }
 
     public static void updateTeacher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        teacherDao.updateTeacher();
     }
 
     public static void addTeacher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        teacherDao.addTeacher();
     }
     
 }

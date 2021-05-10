@@ -1,45 +1,45 @@
 package dao;
 
 public class GenericFunctions {
-
+    static GenericDao genericDao = new GenericDao();
     public static void showStatistics() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.showStatistics();
     }
 
     public static void showAllTeachersInCourse() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.showAllTeachersInCourse();
     }
 
     public static void disconnectTeacherFromCourse() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.disconnectTeacherFromCourse();
     }
 
     public static void connectTeacherToCourse() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.connectTeacherToCourse();
     }
 
     public static void showAllStudentsInEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.showAllStudentsInEducation();
     }
 
     public static void disconnectStudentFromEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.disconnectStudentFromEducation();
     }
 
     public static void connectStudentToEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.connectStudentToEducation();
     }
 
     public static void disconnectCourseFromEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.disconnectCourseFromEducation();
     }
 
     public static void showAllCoursesInEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.showAllCoursesInEducation();
     }
 
     public static void connectCourseToEducation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        genericDao.connectCourseToEducation();
     }
 
 
