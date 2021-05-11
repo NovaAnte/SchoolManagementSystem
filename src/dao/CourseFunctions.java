@@ -8,7 +8,7 @@ public class CourseFunctions {
     static CourseDao courseDao = new CourseDao();
 
     public static void removeCourse() {
-        System.out.println("ID:");
+        System.out.print("ID:");
         int id = readInt();
         courseDao.removeCourse(id);
     }
@@ -18,27 +18,27 @@ public class CourseFunctions {
     }
 
     public static void showCourseInfo() {
-        System.out.println("ID:");
+        System.out.print("ID:");
         int id = readInt();
         courseDao.showCourseInfo(id);
     }
 
     public static void updateCourse() {
-        System.out.println("ID:");
+        System.out.print("ID:");
         int id = readInt();
         System.out.println("Press enter to leave field unchanged!");
-        System.out.println("New course name:");
+        System.out.print("New course name:");
         String newName = sc.nextLine();
         System.out.println("Press enter to leave field unchanged!");
-        System.out.println("New course credit:");
+        System.out.print("New course credit:");
         int newCredit = readInt();
         courseDao.updateCourse(id, newName, newCredit);
     }
 
     public static void addCourse() {
-        System.out.println("Name:");
+        System.out.print("Name:");
         String name = sc.nextLine();
-        System.out.println("Credit:");
+        System.out.print("Credit:");
         int credit = readInt();
         courseDao.addCourse(name, credit);
     }
