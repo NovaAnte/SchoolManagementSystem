@@ -12,7 +12,7 @@ public class TeacherFunctions {
     public static void removeTeacher() {
         
         System.out.println("ID:");
-        int id = HelpFunctions.readInt();
+        int id = readInt();
         
         teacherDao.removeTeacher(id);
     }
@@ -44,7 +44,7 @@ public class TeacherFunctions {
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Salary:");
         double salary = readDouble();
-        System.out.println("Input '0' (zero) to leave field unchanged.");
+        System.out.println("Press enter to leave field unchanged.");
         System.out.println("Age:");
         int age = readInt(); // Calling getInt() to verify integer...
         sc.nextLine();
