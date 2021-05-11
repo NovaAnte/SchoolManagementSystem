@@ -1,5 +1,6 @@
 package dao;
 
+import schoolmanagementsystem.HelpFunctions;
 import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
 public class StudentFunctions {
@@ -31,8 +32,8 @@ public class StudentFunctions {
         studentDao.showStudent(id);
         System.out.println("New student name:");
         String newName = sc.nextLine();
-        System.out.println("New student gender: (Male/Female)");
-        String newGender = sc.nextLine();
+        System.out.println("New student gender: ");
+        String newGender = HelpFunctions.inputGender();
         System.out.println("New student age:");
         int newAge = sc.nextInt();
         sc.nextLine();
@@ -44,8 +45,8 @@ public class StudentFunctions {
     public static void addStudent() {
         System.out.println("Name:");
         String name = sc.nextLine();
-        System.out.println("Gender: (Male/Female)");
-        String gender = sc.nextLine();
+        System.out.println("Gender: ");
+        String gender = HelpFunctions.inputGender();
         System.out.println("Age:");
         int age = sc.nextInt();
         sc.nextLine();
