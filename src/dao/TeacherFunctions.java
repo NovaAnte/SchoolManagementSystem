@@ -46,7 +46,6 @@ public class TeacherFunctions {
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Age:");
         int age = readInt(); // Calling getInt() to verify integer...
-        sc.nextLine();
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Email:");
         String email = sc.nextLine();
