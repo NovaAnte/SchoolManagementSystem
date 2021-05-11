@@ -9,7 +9,7 @@ public class StudentFunctions {
     static StudentDao studentDao = new StudentDao();
 
     public static void removeStudent() {
-        System.out.println("ID:");
+        System.out.print("ID:");
         int id = readInt();
         studentDao.removeStudent(id);
     }
@@ -19,38 +19,38 @@ public class StudentFunctions {
     }
 
     public static void showStudent() {
-        System.out.println("ID:");
+        System.out.print("ID:");
         int id = readInt();
         studentDao.showStudent(id);
     }
 
     public static void updateStudent() {
-        System.out.println("ID:");
+        System.out.print("ID:");
         int id = readInt();
         studentDao.showStudent(id);
         System.out.println("Press enter to leave field unchanged!");
-        System.out.println("New student name:");
+        System.out.print("New student name:");
         String newName = sc.nextLine();
         System.out.println("Press enter to leave field unchanged!");
-        System.out.println("New student gender: ");
+        System.out.print("New student gender: ");
         String newGender = inputGender();
         System.out.println("Press enter to leave field unchanged!");
-        System.out.println("New student age:");
+        System.out.print("New student age:");
         int newAge = readInt();
         System.out.println("Press enter to leave field unchanged!");
-        System.out.println("New student e-mail:");
+        System.out.print("New student e-mail:");
         String newEmail = sc.nextLine();
         studentDao.updateStudent(id, newName, newGender, newAge, newEmail);
     }
 
     public static void addStudent() {
-        System.out.println("Name:");
+        System.out.print("Name:");
         String name = sc.nextLine();
-        System.out.println("Gender: ");
+        System.out.print("Gender: ");
         String gender = inputGender();
-        System.out.println("Age:");
+        System.out.print("Age:");
         int age = readInt();
-        System.out.println("E-mail:");
+        System.out.print("E-mail:");
         String email = sc.nextLine();
         studentDao.addStudent(name, gender, age, email);
     }

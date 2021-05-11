@@ -1,15 +1,11 @@
 package dao;
 
 import java.text.DecimalFormat;
-import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import schoolmanagementsystem.domain.Course;
 import schoolmanagementsystem.domain.Education;
@@ -135,10 +131,10 @@ public class GenericDao {
     void showStatistics() {
         EntityManager em = emf.createEntityManager();
         DecimalFormat df = new DecimalFormat("#.##");
-        TypedQuery<Student> x = em.createQuery("SELECT a FROM Student a", Student.class);
 
         // --- Gender Statistics --- //
-        System.out.println("===== Gender Statistics =====");
+        TypedQuery<Student> x = em.createQuery("SELECT a FROM Student a", Student.class);
+        System.out.println("=====Student Gender Statistics =====");
         List<Student> allStudents = x.getResultStream()
                 .collect(Collectors.toList());
 
@@ -171,6 +167,43 @@ public class GenericDao {
         } else {
             System.out.println("There are no students!");
         }
+
+        // --- Teacher Statistics --- //
+        TypedQuery<Teacher> t = em.createQuery("SELECT a FROM Teacher a", Teacher.class);
+        System.out.println("===== Teacher Gender Statistics =====");
+        List<Teacher> allTeachers = t.getResultStream()
+                .collect(Collectors.toList());
+
+        if (!allTeachers.isEmpty()) {
+
+            // Percentage of female teachers
+            List<Teacher> femaleTeachers = t.getResultStream()
+                    .filter(t1 -> t1.getGender().equals("Female"))
+                    .collect(Collectors.toList());
+
+            double sumFemaleTeachers = ((double) femaleTeachers.size() / allTeachers.size()) * 100;
+            System.out.println(df.format(sumFemaleTeachers) + "% of the teachers are female");
+
+            // Percentage of male teachers
+            List<Teacher> maleTeachers = t.getResultStream()
+                    .filter(t2 -> t2.getGender().equals("Male"))
+                    .collect(Collectors.toList());
+
+            double sumMaleTeachers = ((double) maleTeachers.size() / allTeachers.size()) * 100;
+            System.out.println(df.format(sumMaleTeachers) + "% of the teachers are male");
+
+            // Percentage of non-binary students
+            List<Teacher> nonBinaryTeachers = t.getResultStream()
+                    .filter(t3 -> t3.getGender().equals("Unknown"))
+                    .collect(Collectors.toList());
+
+            double sumNonBinaryTeachers = ((double) nonBinaryTeachers.size() / allTeachers.size()) * 100;
+            System.out.println(df.format(sumNonBinaryTeachers) + "% of the teachers are non-binary");
+
+        } else {
+            System.out.println("There are no teachers!");
+        }
+
     }
 
 }
