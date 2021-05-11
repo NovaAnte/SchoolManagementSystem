@@ -1,15 +1,11 @@
 package dao;
 
 import java.text.DecimalFormat;
-import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import schoolmanagementsystem.domain.Course;
 import schoolmanagementsystem.domain.Education;
@@ -171,8 +167,7 @@ public class GenericDao {
         } else {
             System.out.println("There are no students!");
         }
-        
-             
+
         // --- Teacher Statistics --- //
         TypedQuery<Teacher> t = em.createQuery("SELECT a FROM Teacher a", Teacher.class);
         System.out.println("===== Teacher Gender Statistics =====");
@@ -208,12 +203,7 @@ public class GenericDao {
         } else {
             System.out.println("There are no teachers!");
         }
-      
-    }
 
-    
-    
-//    Coursecredit
-//    educationcredit
+    }
 
 }
