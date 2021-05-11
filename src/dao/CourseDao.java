@@ -49,12 +49,12 @@ public class CourseDao {
 
         if (c != null) {
             System.out.println(c);
-            return false;
+            return true;
         } else {
             System.out.println("No course found with that ID.");
         }
         em.close();
-        return true;
+        return false;
     }
 
     void updateCourse(int id, String newName, int newCredit) {
