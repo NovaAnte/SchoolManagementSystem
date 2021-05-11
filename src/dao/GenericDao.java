@@ -19,16 +19,18 @@ public class GenericDao {
     void showAllTeachersInCourse(int id) {
         EntityManager em = emf.createEntityManager();
 
-        TypedQuery<Teacher> x = em.createQuery("SELECT a FROM Teacher a WHERE a.courses.id=:id", Teacher.class);
-        x.setParameter("id", id);
-        List<Teacher> t = x.getResultList();
+        Course c = em.find(Course.class, id);
 
-        if (t == null) {
-            System.out.println("Invalid ID / no teachers in selected course.");
+        if (c == null) {
+            System.out.println("No teacher in course.");
         } else {
-
-            for (Teacher teacher : t) {
-                System.out.println(teacher);
+            List<Teacher> x = c.getTeachers();
+            if (x == null) {
+                System.out.println("Invalid ID.");
+            } else {
+                for (Teacher teacher : x) {
+                    System.out.println(teacher);
+                }
             }
         }
     }
