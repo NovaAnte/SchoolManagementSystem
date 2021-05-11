@@ -75,12 +75,12 @@ public class EducationDao {
         Education e = em.find(Education.class, id);
         if (e != null) {
             System.out.println(e);
-            return false;
+            return true;
         } else {
             System.out.println("There is no education with that ID");
         }
         em.close();
-        return true;
+        return false;
     }
 
 }
