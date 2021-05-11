@@ -1,6 +1,7 @@
 package dao;
 
-import schoolmanagementsystem.HelpFunctions;
+import static schoolmanagementsystem.HelpFunctions.inputGender;
+import static schoolmanagementsystem.HelpFunctions.readInt;
 import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
 public class StudentFunctions {
@@ -9,7 +10,7 @@ public class StudentFunctions {
 
     public static void removeStudent() {
         System.out.println("ID:");
-        int id = HelpFunctions.readInt();
+        int id = readInt();
         studentDao.removeStudent(id);
     }
 
@@ -19,20 +20,20 @@ public class StudentFunctions {
 
     public static void showStudent() {
         System.out.println("ID:");
-        int id = HelpFunctions.readInt();
+        int id = readInt();
         studentDao.showStudent(id);
     }
 
     public static void updateStudent() {
         System.out.println("ID:");
-        int id = HelpFunctions.readInt();
+        int id = readInt();
         studentDao.showStudent(id);
         System.out.println("New student name:");
         String newName = sc.nextLine();
         System.out.println("New student gender: ");
-        String newGender = HelpFunctions.inputGender();
+        String newGender = inputGender();
         System.out.println("New student age:");
-        int newAge = HelpFunctions.readInt();
+        int newAge = readInt();
         System.out.println("New student e-mail:");
         String newEmail = sc.nextLine();
         studentDao.updateStudent(id, newName, newGender, newAge, newEmail);
@@ -42,9 +43,9 @@ public class StudentFunctions {
         System.out.println("Name:");
         String name = sc.nextLine();
         System.out.println("Gender: ");
-        String gender = HelpFunctions.inputGender();
+        String gender = inputGender();
         System.out.println("Age:");
-        int age = HelpFunctions.readInt();
+        int age = readInt();
         System.out.println("E-mail:");
         String email = sc.nextLine();
         studentDao.addStudent(name, gender, age, email);
