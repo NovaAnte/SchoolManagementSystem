@@ -1,7 +1,6 @@
 package dao;
 
 import static schoolmanagementsystem.HelpFunctions.readInt;
-import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
 public class GenericFunctions {
     static GenericDao genericDao = new GenericDao();
