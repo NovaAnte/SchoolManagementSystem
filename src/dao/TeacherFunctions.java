@@ -1,5 +1,6 @@
 package dao;
 import static schoolmanagementsystem.HelpFunctions.inputGender;
+import static schoolmanagementsystem.HelpFunctions.readDouble;
 import static schoolmanagementsystem.HelpFunctions.readInt;
 import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
@@ -35,8 +36,7 @@ public class TeacherFunctions {
         String gender = inputGender();
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Salary:");
-        double salary = sc.nextDouble();
-        sc.nextLine();
+        double salary = readDouble();
         System.out.println("Input '0' (zero) to leave field unchanged.");
         System.out.println("Age:");
         int age = readInt(); // Calling getInt() to verify integer...
@@ -55,8 +55,7 @@ public class TeacherFunctions {
         System.out.println("Gender:");
         String gender = inputGender();
         System.out.println("Salary:");
-        double salary = sc.nextDouble();
-        sc.nextLine();
+        double salary = readDouble();
         System.out.println("Age:");
         int age = readInt();
         System.out.println("Email:");

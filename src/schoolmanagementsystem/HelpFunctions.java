@@ -51,4 +51,21 @@ public class HelpFunctions {
         }
         return input;
     }
+    
+    public static double readDouble() {
+        boolean runAgain = true;
+        double input = -1;
+        while (runAgain) {
+            try {
+                input = sc.nextDouble();
+                sc.nextLine();
+                runAgain = false;
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                System.out.println("Wrong input. Only numbers are allowed.");
+                System.out.print("Try again: ");
+            }
+        }
+        return input;
+    }
 }
