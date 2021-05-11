@@ -21,7 +21,7 @@ public class SchoolManagementSystem {
     }
 
     public static void menu() {
-        System.out.println("===== School Management System =====");
+        System.out.println("\n===== School Management System =====");
         System.out.println("1. Education management");
         System.out.println("2. Course management");
         System.out.println("3. Student management");
@@ -74,7 +74,7 @@ public class SchoolManagementSystem {
         boolean menuLoop = true;
 
         while (menuLoop) {
-            System.out.println("===== Education =====");
+            System.out.println("\n===== Education =====");
 
             System.out.println("1. Add education");
             System.out.println("2. Update education information");
@@ -120,7 +120,7 @@ public class SchoolManagementSystem {
         boolean menuLoop = true;
 
         while (menuLoop) {
-            System.out.println("===== Course =====");
+            System.out.println("\n===== Course =====");
 
             System.out.println("1. Add course");
             System.out.println("2. Update course information");
@@ -165,7 +165,7 @@ public class SchoolManagementSystem {
         boolean menuLoop = true;
 
         while (menuLoop) {
-            System.out.println("===== Student =====");
+            System.out.println("\n===== Student =====");
 
             System.out.println("1. Add student");
             System.out.println("2. Update student information");
@@ -211,7 +211,7 @@ public class SchoolManagementSystem {
         boolean menuLoop = true;
 
         while (menuLoop) {
-            System.out.println("===== Teacher =====");
+            System.out.println("\n===== Teacher =====");
 
             System.out.println("1. Add teacher");
             System.out.println("2. Update teacher information");
@@ -257,7 +257,7 @@ public class SchoolManagementSystem {
         boolean menuLoop = true;
 
         while (menuLoop) {
-            System.out.println("===== Connections =====");
+            System.out.println("\n===== Connections =====");
 
             System.out.println("1. Add course to education");
             System.out.println("2. Show all courses in education");
