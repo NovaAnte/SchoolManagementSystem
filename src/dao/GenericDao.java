@@ -100,21 +100,23 @@ public class GenericDao {
     void showAllCoursesInEducation(int eduId) {
         EntityManager em = emf.createEntityManager();
 
-        Education edu = em.find(Education.class, eduId);
-        Object[] list = edu.getCourses().toArray();
+        TypedQuery<Course> x = em.createQuery("SELECT a FROM Course a WHERE a.education.id=:eduId", Course.class);
+        x.setParameter("eduId", eduId);
+        List<Course> c = x.getResultList();
 
-        for (Object object : list) {
-            System.out.println(object);
+        for (Course course : c) {
+            System.out.println(course);
         }
-        
+
+        em.close();
     }
 
     void connectCourseToEducation(int courseId, int eduId) {
         EntityManager em = emf.createEntityManager();
-        
+
         Course c = em.find(Course.class, courseId);
         Education edu = em.find(Education.class, eduId);
-        
+
         em.getTransaction().begin();
         edu.addCourse(c);
         em.getTransaction().commit();
