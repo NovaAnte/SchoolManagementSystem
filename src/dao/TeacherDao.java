@@ -34,6 +34,7 @@ public class TeacherDao {
         System.out.println(teacher);
         em.close();
     }
+    
 
     void showAllTeachers() {
         
@@ -45,6 +46,7 @@ public class TeacherDao {
         teachers.forEach(System.out::println);
         em.close();
     }
+    
 
     void updateTeacher(int id, String name, String gender, double salary, int age, String email) {
         
@@ -60,9 +62,14 @@ public class TeacherDao {
         if(!gender.isBlank())
             teacher.setGender(gender);
         
-        if(!Double.isNaN(salary))
+        if(!Double.isNaN(salary)) // -------- Får testa om denna funkar...
             teacher.setSalary(salary);
         
+        if(!(age == 0))
+            teacher.setAge(age);
+        
+        if(!email.isBlank())
+            teacher.setEmail(email);
         
         
         em.getTransaction().commit();
