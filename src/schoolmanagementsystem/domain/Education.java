@@ -17,7 +17,7 @@ public class Education {
     @Basic
     private String name;
     @Basic
-    private String totalcredit;
+    private String totalCredit;
     @OneToMany(mappedBy = "education")
     private List<Course> courses;
     @OneToMany(mappedBy = "education")
@@ -26,9 +26,8 @@ public class Education {
     public Education() {
     }
 
-    public Education(String name, String totalcredit) {
+    public Education(String name) {
         this.name = name;
-        this.totalcredit = totalcredit;
     }
 
     public int getId() {
@@ -47,12 +46,12 @@ public class Education {
         this.name = name;
     }
 
-    public String getTotalcredit() {
-        return totalcredit;
+    public String getTotalCredit() {
+        return totalCredit;
     }
 
-    public void setTotalcredit(String totalcredit) {
-        this.totalcredit = totalcredit;
+    public void setTotalCredit(String totalCredit) {
+        this.totalCredit = totalCredit;
     }
 
     public List<Course> getCourses() {
@@ -99,7 +98,7 @@ public class Education {
 
     @Override
     public String toString() {
-        return "Education{" + "id=" + id + ", name=" + name + ", totalcredit=" + totalcredit + '}';
+        return "Education{" + "id=" + id + ", name=" + name + ", totalcredit=" + totalCredit + '}';
     }
 
 }
