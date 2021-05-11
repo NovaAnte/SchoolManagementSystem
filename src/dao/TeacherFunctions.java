@@ -1,5 +1,4 @@
 package dao;
-import java.util.InputMismatchException;
 import schoolmanagementsystem.HelpFunctions;
 import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
