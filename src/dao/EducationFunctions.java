@@ -1,5 +1,6 @@
 package dao;
 
+import static schoolmanagementsystem.HelpFunctions.readInt;
 import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
 public class EducationFunctions {
@@ -9,14 +10,13 @@ public class EducationFunctions {
     public static void addEducation() {
         System.out.println("Name:");
         String name = sc.nextLine();
-      
+
         educationDao.addEducation(name);
     }
 
     public static void removeEducation() {
         System.out.println("ID:");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id = readInt();
 
         educationDao.removeEducation(id);
     }
@@ -27,15 +27,15 @@ public class EducationFunctions {
 
     public static void showEducationInfo() {
         System.out.println("ID:");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id = readInt();
+
         educationDao.showEducationInfo(id);
     }
 
     public static void updateEducation() {
         System.out.println("ID:");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id = readInt();
+
         System.out.println("Press enter to leave field unchanged!");
         System.out.println("Name:");
         String newName = sc.nextLine();
