@@ -1,5 +1,4 @@
 package dao;
-import schoolmanagementsystem.HelpFunctions;
 import static schoolmanagementsystem.HelpFunctions.inputGender;
 import static schoolmanagementsystem.HelpFunctions.readDouble;
 import static schoolmanagementsystem.HelpFunctions.readInt;
