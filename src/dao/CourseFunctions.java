@@ -1,5 +1,6 @@
 package dao;
 
+import static schoolmanagementsystem.HelpFunctions.readInt;
 import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
 public class CourseFunctions {
@@ -8,8 +9,7 @@ public class CourseFunctions {
 
     public static void removeCourse() {
         System.out.println("ID:");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id = readInt();
         courseDao.removeCourse(id);
     }
 
@@ -19,19 +19,17 @@ public class CourseFunctions {
 
     public static void showCourseInfo() {
         System.out.println("ID:");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id = readInt();
         courseDao.showCourseInfo(id);
     }
 
     public static void updateCourse() {
         System.out.println("ID:");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id = readInt();
         System.out.println("New course name:");
         String newName = sc.nextLine();
         System.out.println("New course credit:");
-        String newCredit = sc.nextLine();
+        int newCredit = readInt();
         courseDao.updateCourse(id, newName, newCredit);
     }
 
@@ -39,7 +37,7 @@ public class CourseFunctions {
         System.out.println("Name:");
         String name = sc.nextLine();
         System.out.println("Credit:");
-        String credit = sc.nextLine();
+        int credit = readInt();
         courseDao.addCourse(name, credit);
     }
 

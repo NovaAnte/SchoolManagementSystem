@@ -18,7 +18,7 @@ public class Course {
     @Basic
     private String name;
     @Basic
-    private String credit;
+    private int credit;
     @ManyToOne
     private Education education;
     @ManyToMany(mappedBy = "courses")
@@ -27,7 +27,7 @@ public class Course {
     public Course() {
     }
 
-    public Course(String name, String credit) {
+    public Course(String name, int credit) {
         this.name = name;
         this.credit = credit;
     }
@@ -49,11 +49,11 @@ public class Course {
         this.name = name;
     }
 
-    public String getCredit() {
+    public int getCredit() {
         return credit;
     }
 
-    public void setCredit(String credit) {
+    public void setCredit(int credit) {
         this.credit = credit;
     }
 

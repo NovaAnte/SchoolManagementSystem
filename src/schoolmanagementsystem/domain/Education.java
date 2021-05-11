@@ -17,7 +17,7 @@ public class Education {
     @Basic
     private String name;
     @Basic
-    private String totalCredit;
+    private int totalCredit;
     @OneToMany(mappedBy = "education")
     private List<Course> courses;
     @OneToMany(mappedBy = "education")
@@ -46,12 +46,17 @@ public class Education {
         this.name = name;
     }
 
-    public String getTotalCredit() {
+    public int getTotalCredit() {
         return totalCredit;
     }
 
-    public void setTotalCredit(String totalCredit) {
-        this.totalCredit = totalCredit;
+    public void setTotalCredit() {
+        int totalCreadit = 0;
+        List<Course> c = getCourses();
+        for (Course course : c) {
+            totalCreadit += course.getCredit();
+        }
+        this.totalCredit = totalCreadit;
     }
 
     public List<Course> getCourses() {

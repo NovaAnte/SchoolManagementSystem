@@ -14,8 +14,7 @@ public class HelpFunctions {
             System.out.println("1. Female");
             System.out.println("2. Male");
             System.out.println("3. Unknown");
-            int genderChoice = sc.nextInt();
-            sc.nextLine();
+            int genderChoice = readInt();
             switch (genderChoice) {
                 case 1:
                     gender = "Female";
