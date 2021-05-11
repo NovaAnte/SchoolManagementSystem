@@ -17,8 +17,12 @@ public class CourseDao {
         Course c = em.find(Course.class, id);
 
         em.getTransaction().begin();
-        em.remove(c);
-        em.getTransaction().commit();
+        if (c != null) {
+            em.remove(c);
+            em.getTransaction().commit();
+        } else {
+            System.out.println("No course found with that ID.");
+        }
         em.close();
     }
 
@@ -28,10 +32,13 @@ public class CourseDao {
         TypedQuery<Course> x = em.createQuery("SELECT a FROM Course a", Course.class);
         List<Course> c = x.getResultList();
 
-        for (Course course : c) {
-            System.out.println(course);
+        if (c.isEmpty()) {
+            System.out.println("No courses added yet!");
+        } else {
+            for (Course course : c) {
+                System.out.println(course);
+            }
         }
-
         em.close();
     }
 
@@ -40,8 +47,11 @@ public class CourseDao {
 
         Course c = em.find(Course.class, id);
 
-        System.out.println(c);
-
+        if (c != null) {
+            System.out.println(c);
+        } else {
+            System.out.println("No course found with that ID.");
+        }
         em.close();
     }
 
@@ -49,21 +59,23 @@ public class CourseDao {
         EntityManager em = emf.createEntityManager();
 
         Course c = em.find(Course.class, id);
-
-        em.getTransaction().begin();
-        if (!newName.isBlank()) {
-            c.setName(newName);
-        }
-        if (newCredit!=0) {
-            c.setCredit(newCredit);
-        }
-
-        em.getTransaction().commit();
+        if (c != null) {
+            em.getTransaction().begin();
+            if (!newName.isBlank()) {
+                c.setName(newName);
+            }
+            if (newCredit != 0) {
+                c.setCredit(newCredit);
+            }
+            em.getTransaction().commit();
+        } else
+            System.out.println("No course found with that ID.");
         em.close();
 
     }
 
-    void addCourse(String name, int credit) {
+    void addCourse(String name, int credit
+    ) {
         EntityManager em = emf.createEntityManager();
 
         Course c = new Course(name, credit);
