@@ -23,91 +23,135 @@ public class GenericDao {
         x.setParameter("id", id);
         List<Teacher> t = x.getResultList();
 
-        for (Teacher teacher : t) {
-            System.out.println(teacher);
+        if (t == null) {
+            System.out.println("Invalid ID / no teachers in selected course.");
+        } else {
+
+            for (Teacher teacher : t) {
+                System.out.println(teacher);
+            }
         }
     }
 
     void disconnectTeacherFromCourse(int teacherId, int courseId) {
         EntityManager em = emf.createEntityManager();
 
-        Teacher x = em.find(Teacher.class, teacherId);
+        Teacher t = em.find(Teacher.class, teacherId);
         Course c = em.find(Course.class, courseId);
 
-        em.getTransaction().begin();
-        x.removeCourse(c);
-        em.getTransaction().commit();
-        em.close();
+        if (t == null || c == null) {
+            System.out.println("Invalid ID.");
+        } else {
+
+            em.getTransaction().begin();
+            t.removeCourse(c);
+            em.getTransaction().commit();
+            em.close();
+        }
     }
 
-    void connectTeacherToCourse(int teacherId, int courseId) {
+    void connectTeacherToCourse(int teacherId, int courseId
+    ) {
         EntityManager em = emf.createEntityManager();
 
-        Teacher x = em.find(Teacher.class, teacherId);
+        Teacher t = em.find(Teacher.class, teacherId);
         Course c = em.find(Course.class, courseId);
 
-        em.getTransaction().begin();
-        x.addCourse(c);
-        em.getTransaction().commit();
-        em.close();
+        if (t == null || c == null) {
+            System.out.println("Invalid ID.");
+        } else {
+
+            em.getTransaction().begin();
+            t.addCourse(c);
+            em.getTransaction().commit();
+            em.close();
+        }
     }
 
-    void showAllStudentsInEducation(int eduId) {
+    void showAllStudentsInEducation(int eduId
+    ) {
         EntityManager em = emf.createEntityManager();
 
         TypedQuery<Student> x = em.createQuery("SELECT a FROM Student a WHERE a.education.id=:eduId", Student.class);
         x.setParameter("eduId", eduId);
         List<Student> s = x.getResultList();
 
-        for (Student student : s) {
-            System.out.println(student);
+        if (s == null) {
+            System.out.println("Invalid ID / no students in selected education.");
+        } else {
+
+            for (Student student : s) {
+                System.out.println(student);
+            }
         }
     }
 
-    void disconnectStudentFromEducation(int stuId) {
+    void disconnectStudentFromEducation(int stuId
+    ) {
         EntityManager em = emf.createEntityManager();
 
         Student s = em.find(Student.class, stuId);
 
-        em.getTransaction().begin();
-        s.setEducation(null);
-        em.getTransaction().commit();
-        em.close();
+        if (s == null) {
+            System.out.println("Invalid ID.");
+        } else {
+
+            em.getTransaction().begin();
+            s.setEducation(null);
+            em.getTransaction().commit();
+            em.close();
+        }
     }
 
-    void connectStudentToEducation(int stuId, int eduId) {
+    void connectStudentToEducation(int stuId, int eduId
+    ) {
         EntityManager em = emf.createEntityManager();
 
         Student s = em.find(Student.class, stuId);
         Education edu = em.find(Education.class, eduId);
 
-        em.getTransaction().begin();
-        s.setEducation(edu);
-        em.getTransaction().commit();
-        em.close();
+        if (s == null || edu == null) {
+            System.out.println("Invalid ID.");
+        } else {
+
+            em.getTransaction().begin();
+            s.setEducation(edu);
+            em.getTransaction().commit();
+            em.close();
+        }
     }
 
-    void disconnectCourseFromEducation(int courseId, int eduId) {
+    void disconnectCourseFromEducation(int courseId, int eduId
+    ) {
         EntityManager em = emf.createEntityManager();
 
         Course c = em.find(Course.class, courseId);
         Education edu = em.find(Education.class, eduId);
 
-        em.getTransaction().begin();
-        edu.removeCourse(c);
-        edu.setTotalCredit();
-        em.getTransaction().commit();
-        em.close();
+        if (c == null || edu == null) {
+            System.out.println("Invalid ID.");
+        } else {
 
+            em.getTransaction().begin();
+            edu.removeCourse(c);
+            edu.setTotalCredit();
+            em.getTransaction().commit();
+            em.close();
+
+        }
     }
 
-    void showAllCoursesInEducation(int eduId) {
+    void showAllCoursesInEducation(int eduId
+    ) {
         EntityManager em = emf.createEntityManager();
 
         TypedQuery<Course> x = em.createQuery("SELECT a FROM Course a WHERE a.education.id=:eduId", Course.class);
         x.setParameter("eduId", eduId);
         List<Course> c = x.getResultList();
 
+        if (c.isEmpty()) {
+            System.out.println("No courses in selected education.");
+        }
         for (Course course : c) {
             System.out.println(course);
         }
@@ -115,17 +159,23 @@ public class GenericDao {
         em.close();
     }
 
-    void connectCourseToEducation(int courseId, int eduId) {
+    void connectCourseToEducation(int courseId, int eduId
+    ) {
         EntityManager em = emf.createEntityManager();
 
         Course c = em.find(Course.class, courseId);
         Education edu = em.find(Education.class, eduId);
 
-        em.getTransaction().begin();
-        edu.addCourse(c);
-        edu.setTotalCredit();
-        em.getTransaction().commit();
-        em.close();
+        if (c == null || edu == null) {
+            System.out.println("Invalid ID.");
+        } else {
+
+            em.getTransaction().begin();
+            edu.addCourse(c);
+            edu.setTotalCredit();
+            em.getTransaction().commit();
+            em.close();
+        }
     }
 
     void showStatistics() {
