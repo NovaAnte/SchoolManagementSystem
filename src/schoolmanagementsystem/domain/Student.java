@@ -83,8 +83,12 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", email=" + email + ", education=" + education.getName() + '}';
+        if (this.education == null) {
+            return "Student{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", email=" + email + ", education=none" + '}';
+        } else {
+            return "Student{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", email=" + email + ", education=" + education.getName() + '}';
+
+        }
     }
-    
 
 }

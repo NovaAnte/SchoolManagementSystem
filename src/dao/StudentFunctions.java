@@ -48,7 +48,7 @@ public class StudentFunctions {
     public static void addStudent() {
         System.out.print("Name:");
         String name = sc.nextLine();
-        System.out.print("Gender: ");
+        System.out.println("Gender:");
         String gender = inputGender();
         System.out.print("Age:");
         int age = readInt();

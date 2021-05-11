@@ -41,7 +41,7 @@ public class StudentDao {
         Student s = em.find(Student.class, id);
         if (s == null) {
 
-            System.out.println("No teacher found!");
+            System.out.println("No student found!");
             return false;
         } else {
             System.out.println(s);
