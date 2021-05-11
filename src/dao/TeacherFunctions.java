@@ -6,8 +6,14 @@ import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
 public class TeacherFunctions {
     static TeacherDao teacherDao = new TeacherDao();
+    
+    
     public static void removeTeacher() {
-//        teacherDao.removeTeacher();
+        
+        System.out.println("ID:");
+        int id = readInt();
+        
+        teacherDao.removeTeacher(id);
     }
 
     public static void showAllTeachers() {
@@ -37,10 +43,9 @@ public class TeacherFunctions {
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Salary:");
         double salary = readDouble();
-        System.out.println("Input '0' (zero) to leave field unchanged.");
+        System.out.println("Press enter to leave field unchanged.");
         System.out.println("Age:");
         int age = readInt(); // Calling getInt() to verify integer...
-        sc.nextLine();
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Email:");
         String email = sc.nextLine();

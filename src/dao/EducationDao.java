@@ -58,27 +58,28 @@ public class EducationDao {
     void updateEducation(int id, String newName) {
         EntityManager em = emf.createEntityManager();
 
-        Education e = em.find(Education.class,
-                id);
-
-        em.getTransaction().begin();
-        if (!newName.isBlank()) {
-            e.setName(newName);
+        Education e = em.find(Education.class, id);
+        if (e != null) {
+            em.getTransaction().begin();
+            if (!newName.isBlank()) {
+                e.setName(newName);
+                em.getTransaction().commit();
+            }
+        } else {
+            System.out.println("There is no education with that ID");
         }
-
-        em.getTransaction().commit();
         em.close();
-
     }
 
     void showEducationInfo(int id) {
         EntityManager em = emf.createEntityManager();
 
-        Education e = em.find(Education.class,
-                id);
-
-        System.out.println(e);
-
+        Education e = em.find(Education.class, id);
+        if (e != null) {
+            System.out.println(e);
+        } else {
+            System.out.println("There is no education with that ID");
+        }
         em.close();
     }
 
