@@ -74,8 +74,7 @@ public class CourseDao {
 
     }
 
-    void addCourse(String name, int credit
-    ) {
+    void addCourse(String name, int credit) {
         EntityManager em = emf.createEntityManager();
 
         Course c = new Course(name, credit);
