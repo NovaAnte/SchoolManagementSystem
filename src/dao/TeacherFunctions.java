@@ -1,4 +1,5 @@
 package dao;
+import schoolmanagementsystem.HelpFunctions;
 import static schoolmanagementsystem.HelpFunctions.inputGender;
 import static schoolmanagementsystem.HelpFunctions.readDouble;
 import static schoolmanagementsystem.HelpFunctions.readInt;
@@ -6,8 +7,14 @@ import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
 public class TeacherFunctions {
     static TeacherDao teacherDao = new TeacherDao();
+    
+    
     public static void removeTeacher() {
-//        teacherDao.removeTeacher();
+        
+        System.out.println("ID:");
+        int id = HelpFunctions.readInt();
+        
+        teacherDao.removeTeacher(id);
     }
 
     public static void showAllTeachers() {
