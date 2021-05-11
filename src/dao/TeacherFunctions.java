@@ -1,5 +1,6 @@
 package dao;
 import java.util.InputMismatchException;
+import schoolmanagementsystem.HelpFunctions;
 import static schoolmanagementsystem.SchoolManagementSystem.sc;
 
 public class TeacherFunctions {
@@ -33,14 +34,14 @@ public class TeacherFunctions {
         String name = sc.nextLine();
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Gender:");
-        String gender = sc.nextLine();
+        String gender = HelpFunctions.inputGender();
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Salary:");
         double salary = sc.nextDouble();
         sc.nextLine();
-        System.out.println("Press '0' (zero) to leave field unchanged.");
+        System.out.println("Input '0' (zero) to leave field unchanged.");
         System.out.println("Age:");
-        int age = getInt(); // Calling getInt() to verify integer...
+        int age = HelpFunctions.readInt(); // Calling getInt() to verify integer...
         sc.nextLine();
         System.out.println("Press enter to leave field unchanged.");
         System.out.println("Email:");
@@ -54,13 +55,12 @@ public class TeacherFunctions {
         System.out.println("Name:");
         String name = sc.nextLine();
         System.out.println("Gender:");
-        String gender = sc.nextLine();
+        String gender = HelpFunctions.inputGender();
         System.out.println("Salary:");
         double salary = sc.nextDouble();
         sc.nextLine();
         System.out.println("Age:");
-        int age = sc.nextInt();
-        sc.nextLine();
+        int age = HelpFunctions.readInt();
         System.out.println("Email:");
         String email = sc.nextLine();
     
@@ -69,27 +69,5 @@ public class TeacherFunctions {
     }
     
     
-    private static int getInt() {
-        
-        boolean loop = true;
-        int value = 0;
-        
-        while(loop) {
-            
-            try {
-                
-                value = sc.nextInt();
-                sc.nextLine();
-                loop = false;
-                
-            }
-            catch(InputMismatchException e) {
-                
-                System.out.println("Only integers!");
-                sc.nextLine();  
-            } 
-        }
-        
-        return value;
-    }
+
 }
