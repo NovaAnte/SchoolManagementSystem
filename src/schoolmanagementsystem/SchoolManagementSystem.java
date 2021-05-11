@@ -6,6 +6,7 @@ import dao.GenericFunctions;
 import dao.StudentFunctions;
 import dao.TeacherFunctions;
 import java.util.Scanner;
+import static schoolmanagementsystem.HelpFunctions.readInt;
 
 public class SchoolManagementSystem {
 
@@ -29,7 +30,7 @@ public class SchoolManagementSystem {
         System.out.println("6. Show statistics");
         System.out.println("0. Exit");
 
-        int menuChoice = HelpFunctions.readInt();
+        int menuChoice = readInt();
         switchMenu(menuChoice);
     }
 
@@ -81,7 +82,7 @@ public class SchoolManagementSystem {
             System.out.println("4. Show all educations");
             System.out.println("5. Remove education");
             System.out.println("0. Main menu");
-            int menuChoice = HelpFunctions.readInt();
+            int menuChoice = readInt();
             switch (menuChoice) {
 
                 case 1:
@@ -128,7 +129,7 @@ public class SchoolManagementSystem {
             System.out.println("5. Remove course");
             System.out.println("0. Main menu");
 
-            int menuChoice = HelpFunctions.readInt();
+            int menuChoice = readInt();
 
             switch (menuChoice) {
                 case 1:
@@ -173,7 +174,7 @@ public class SchoolManagementSystem {
             System.out.println("5. Remove student");
             System.out.println("0. Main menu");
 
-            int menuChoice = HelpFunctions.readInt();
+            int menuChoice = readInt();
 
             switch (menuChoice) {
                 case 1:
@@ -219,7 +220,7 @@ public class SchoolManagementSystem {
             System.out.println("5. Remove teacher");
             System.out.println("0. Main menu");
 
-            int menuChoice = HelpFunctions.readInt();
+            int menuChoice = readInt();
 
             switch (menuChoice) {
                 case 1:
@@ -269,7 +270,7 @@ public class SchoolManagementSystem {
             System.out.println("9. Show all teachers in course");
             System.out.println("0. Main menu");
 
-            int menuChoice = HelpFunctions.readInt();
+            int menuChoice = readInt();
 
             switch (menuChoice) {
                 case 1:

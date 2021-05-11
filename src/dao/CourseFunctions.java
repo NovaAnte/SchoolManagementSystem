@@ -26,8 +26,10 @@ public class CourseFunctions {
     public static void updateCourse() {
         System.out.println("ID:");
         int id = readInt();
+        System.out.println("Press enter to leave field unchanged!");
         System.out.println("New course name:");
         String newName = sc.nextLine();
+        System.out.println("Press enter to leave field unchanged!");
         System.out.println("New course credit:");
         int newCredit = readInt();
         courseDao.updateCourse(id, newName, newCredit);
