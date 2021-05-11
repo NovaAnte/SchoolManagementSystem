@@ -31,7 +31,14 @@ public class TeacherDao {
         
         Teacher teacher = em.find(Teacher.class, id);
         
-        System.out.println(teacher);
+        if(teacher == null) {
+            
+            System.out.println("No teacher found!");
+            
+        } else {
+            
+            System.out.println(teacher);
+        }
         em.close();
     }
     
@@ -54,25 +61,33 @@ public class TeacherDao {
         
         Teacher teacher = em.find(Teacher.class, id);
         
-        em.getTransaction().begin();
+        if(teacher == null) {
+            System.out.println("No teacher found!");
+        }
+        else {
         
-        if(!name.isBlank())
-            teacher.setName(name);
+            em.getTransaction().begin();
         
-        if(!gender.isBlank())
-            teacher.setGender(gender);
+            if(!name.isBlank())
+                teacher.setName(name);
         
-        if(!Double.isNaN(salary)) // -------- Får testa om denna funkar...
-            teacher.setSalary(salary);
+            if(!gender.isBlank())
+                teacher.setGender(gender);
         
-        if(!(age == 0))
-            teacher.setAge(age);
+            if(!Double.isNaN(salary)) // -------- Får testa om denna funkar...
+                teacher.setSalary(salary);
         
-        if(!email.isBlank())
-            teacher.setEmail(email);
+            if(!(age == 0))
+                teacher.setAge(age);
+        
+            if(!email.isBlank())
+                teacher.setEmail(email);
         
         
-        em.getTransaction().commit();
+            em.getTransaction().commit();
+        
+        }
+        
         em.close();
     }
 
