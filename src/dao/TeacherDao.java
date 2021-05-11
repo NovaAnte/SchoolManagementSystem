@@ -90,12 +90,12 @@ public class TeacherDao {
                 teacher.setGender(gender);
             }
 
-            if (!Double.isNaN(salary)) // -------- Får testa om denna funkar...
+            if (salary != 0)
             {
                 teacher.setSalary(salary);
             }
 
-            if (!(age == 0)) {
+            if (age != 0) {
                 teacher.setAge(age);
             }
 

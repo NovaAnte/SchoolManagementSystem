@@ -52,8 +52,7 @@ public class GenericDao {
         }
     }
 
-    void connectTeacherToCourse(int teacherId, int courseId
-    ) {
+    void connectTeacherToCourse(int teacherId, int courseId) {
         EntityManager em = emf.createEntityManager();
 
         Teacher t = em.find(Teacher.class, teacherId);
@@ -70,8 +69,7 @@ public class GenericDao {
         }
     }
 
-    void showAllStudentsInEducation(int eduId
-    ) {
+    void showAllStudentsInEducation(int eduId) {
         EntityManager em = emf.createEntityManager();
 
         TypedQuery<Student> x = em.createQuery("SELECT a FROM Student a WHERE a.education.id=:eduId", Student.class);
@@ -88,8 +86,7 @@ public class GenericDao {
         }
     }
 
-    void disconnectStudentFromEducation(int stuId
-    ) {
+    void disconnectStudentFromEducation(int stuId) {
         EntityManager em = emf.createEntityManager();
 
         Student s = em.find(Student.class, stuId);
@@ -105,8 +102,7 @@ public class GenericDao {
         }
     }
 
-    void connectStudentToEducation(int stuId, int eduId
-    ) {
+    void connectStudentToEducation(int stuId, int eduId) {
         EntityManager em = emf.createEntityManager();
 
         Student s = em.find(Student.class, stuId);
@@ -123,8 +119,7 @@ public class GenericDao {
         }
     }
 
-    void disconnectCourseFromEducation(int courseId, int eduId
-    ) {
+    void disconnectCourseFromEducation(int courseId, int eduId) {
         EntityManager em = emf.createEntityManager();
 
         Course c = em.find(Course.class, courseId);
@@ -143,8 +138,7 @@ public class GenericDao {
         }
     }
 
-    void showAllCoursesInEducation(int eduId
-    ) {
+    void showAllCoursesInEducation(int eduId) {
         EntityManager em = emf.createEntityManager();
 
         TypedQuery<Course> x = em.createQuery("SELECT a FROM Course a WHERE a.education.id=:eduId", Course.class);
@@ -161,8 +155,7 @@ public class GenericDao {
         em.close();
     }
 
-    void connectCourseToEducation(int courseId, int eduId
-    ) {
+    void connectCourseToEducation(int courseId, int eduId) {
         EntityManager em = emf.createEntityManager();
 
         Course c = em.find(Course.class, courseId);
@@ -186,7 +179,7 @@ public class GenericDao {
 
         // --- Gender Statistics --- //
         TypedQuery<Student> x = em.createQuery("SELECT a FROM Student a", Student.class);
-        System.out.println("=====Student Gender Statistics =====");
+        System.out.println("\n===== Student Gender Statistics =====");
         List<Student> allStudents = x.getResultStream()
                 .collect(Collectors.toList());
 
@@ -222,7 +215,7 @@ public class GenericDao {
 
         // --- Teacher Statistics --- //
         TypedQuery<Teacher> t = em.createQuery("SELECT a FROM Teacher a", Teacher.class);
-        System.out.println("===== Teacher Gender Statistics =====");
+        System.out.println("\n===== Teacher Gender Statistics =====");
         List<Teacher> allTeachers = t.getResultStream()
                 .collect(Collectors.toList());
 
