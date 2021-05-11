@@ -52,11 +52,11 @@ public class Education {
 
     public void setTotalCredit() {
         int totalCreadit = 0;
-        List<Course> courses = getCourses();
-        for (Course c : courses) {
-            totalCreadit += c.getCredit();
+        List<Course> c = getCourses();
+        for (Course course : c) {
+            totalCreadit += course.getCredit();
         }
-        this.totalCredit = totalCredit;
+        this.totalCredit = totalCreadit;
     }
 
     public List<Course> getCourses() {
