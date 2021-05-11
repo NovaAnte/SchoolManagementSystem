@@ -47,23 +47,27 @@ public class CourseDao {
 
     void updateCourse(int id, String newName, String newCredit) {
         EntityManager em = emf.createEntityManager();
-        
+
         Course c = em.find(Course.class, id);
-        
+
         em.getTransaction().begin();
-        c.setName(newName);
-        c.setCredit(newCredit);
+        if (!newName.isBlank()) {
+            c.setName(newName);
+        }
+        if (!newCredit.isBlank()) {
+            c.setCredit(newCredit);
+        }
+
         em.getTransaction().commit();
         em.close();
-        
-        
+
     }
 
     void addCourse(String name, String credit) {
         EntityManager em = emf.createEntityManager();
-        
+
         Course c = new Course(name, credit);
-        
+
         em.getTransaction().begin();
         em.persist(c);
         em.getTransaction().commit();
