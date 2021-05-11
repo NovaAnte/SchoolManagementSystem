@@ -14,6 +14,7 @@ public class EducationFunctions {
     }
 
     public static void removeEducation() {
+        System.out.println("ID:");
         int id = sc.nextInt();
         sc.nextLine();
 

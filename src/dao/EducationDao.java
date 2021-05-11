@@ -26,10 +26,14 @@ public class EducationDao {
         EntityManager em = emf.createEntityManager();
 
         Education e = em.find(Education.class, id);
-
         em.getTransaction().begin();
-        em.remove(e);
-        em.getTransaction().commit();
+
+        if (e != null) {
+            em.remove(e);
+            em.getTransaction().commit();
+        } else {
+            System.out.println("No education found with that id.");
+        }
         em.close();
     }
 
@@ -39,16 +43,23 @@ public class EducationDao {
         TypedQuery<Education> query = em.createQuery("SELECT e FROM Education e", Education.class);
         List<Education> educations = query.getResultList();
 
-        for (Education education : educations) {
-            System.out.println(education);
+        if (educations.isEmpty()) {
+            System.out.println("No educations added yet!");
+        } else {
+
+            for (Education education : educations) {
+                System.out.println(education);
+
+            }
+            em.close();
         }
-        em.close();
     }
 
     void updateEducation(int id, String newName) {
         EntityManager em = emf.createEntityManager();
 
-        Education e = em.find(Education.class, id);
+        Education e = em.find(Education.class,
+                id);
 
         em.getTransaction().begin();
         if (!newName.isBlank()) {
@@ -63,7 +74,8 @@ public class EducationDao {
     void showEducationInfo(int id) {
         EntityManager em = emf.createEntityManager();
 
-        Education e = em.find(Education.class, id);
+        Education e = em.find(Education.class,
+                id);
 
         System.out.println(e);
 
