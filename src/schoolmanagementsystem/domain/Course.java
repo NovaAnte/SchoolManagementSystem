@@ -2,6 +2,7 @@ package schoolmanagementsystem.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ public class Course {
     private Education education;
     @ManyToMany(mappedBy = "courses")
     private List<Teacher> teachers;
+    private List<String> teacherNames;
 
     public Course() {
     }
@@ -82,11 +84,22 @@ public class Course {
 
     public void removeTeacher(Teacher teacher) {
         getTeachers().remove(teacher);
+    
+    }
+
+    public void setTeachersNames(List<Teacher> teachers) {
+        
+        List<String> teacherNames = teachers.stream().map(t -> t.getName()).collect(Collectors.toList());
+          
+        this.teacherNames = teacherNames;
+                
     }
 
     @Override
     public String toString() {
-        return "Course{" + "id=" + id + ", name=" + name + ", credit=" + credit + '}';
+        return "Course{" + "id=" + id + ", name=" + name + ", credit=" + credit + ", teachers=" + teacherNames + '}';
     }
+
+
 
 }
