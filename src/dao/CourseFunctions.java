@@ -29,7 +29,7 @@ public class CourseFunctions {
         System.out.println("New course name:");
         String newName = sc.nextLine();
         System.out.println("New course credit:");
-        String newCredit = sc.nextLine();
+        int newCredit = readInt();
         courseDao.updateCourse(id, newName, newCredit);
     }
 
@@ -37,7 +37,7 @@ public class CourseFunctions {
         System.out.println("Name:");
         String name = sc.nextLine();
         System.out.println("Credit:");
-        String credit = sc.nextLine();
+        int credit = readInt();
         courseDao.addCourse(name, credit);
     }
 

@@ -45,7 +45,7 @@ public class CourseDao {
         em.close();
     }
 
-    void updateCourse(int id, String newName, String newCredit) {
+    void updateCourse(int id, String newName, int newCredit) {
         EntityManager em = emf.createEntityManager();
 
         Course c = em.find(Course.class, id);
@@ -54,7 +54,7 @@ public class CourseDao {
         if (!newName.isBlank()) {
             c.setName(newName);
         }
-        if (!newCredit.isBlank()) {
+        if (newCredit!=0) {
             c.setCredit(newCredit);
         }
 
@@ -63,7 +63,7 @@ public class CourseDao {
 
     }
 
-    void addCourse(String name, String credit) {
+    void addCourse(String name, int credit) {
         EntityManager em = emf.createEntityManager();
 
         Course c = new Course(name, credit);
