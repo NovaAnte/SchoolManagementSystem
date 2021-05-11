@@ -46,13 +46,11 @@ public class EducationDao {
         if (educations.isEmpty()) {
             System.out.println("No educations added yet!");
         } else {
-
             for (Education education : educations) {
                 System.out.println(education);
-
             }
-            em.close();
         }
+        em.close();
     }
 
     void updateEducation(int id, String newName) {
@@ -71,16 +69,18 @@ public class EducationDao {
         em.close();
     }
 
-    void showEducationInfo(int id) {
+    boolean showEducationInfo(int id) {
         EntityManager em = emf.createEntityManager();
 
         Education e = em.find(Education.class, id);
         if (e != null) {
             System.out.println(e);
+            return false;
         } else {
             System.out.println("There is no education with that ID");
         }
         em.close();
+        return true;
     }
 
 }

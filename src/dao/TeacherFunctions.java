@@ -33,9 +33,9 @@ public class TeacherFunctions {
 
         System.out.print("ID:");
         int id = readInt();
-        boolean x = teacherDao.showTeacher(id);
+        boolean idExist = teacherDao.showTeacher(id);
 
-        if (x) {
+        if (idExist) {
             System.out.println("Press enter to leave field unchanged.");
             System.out.print("Name:");
             String name = sc.nextLine();

@@ -42,17 +42,19 @@ public class CourseDao {
         em.close();
     }
 
-    void showCourseInfo(int id) {
+    boolean showCourseInfo(int id) {
         EntityManager em = emf.createEntityManager();
 
         Course c = em.find(Course.class, id);
 
         if (c != null) {
             System.out.println(c);
+            return false;
         } else {
             System.out.println("No course found with that ID.");
         }
         em.close();
+        return true;
     }
 
     void updateCourse(int id, String newName, int newCredit) {

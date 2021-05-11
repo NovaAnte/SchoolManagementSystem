@@ -35,14 +35,19 @@ public class StudentDao {
         em.close();
     }
 
-    void showStudent(int id) {
+    boolean showStudent(int id) {
         EntityManager em = emf.createEntityManager();
 
         Student s = em.find(Student.class, id);
+        if (s == null) {
 
-        System.out.println(s);
-
+            System.out.println("No teacher found!");
+            return false;
+        } else {
+            System.out.println(s);
+        }
         em.close();
+        return true;
     }
 
     void updateStudent(int id, String newName, String newGender, int newAge, String newEmail) {
@@ -55,11 +60,11 @@ public class StudentDao {
             s.setName(newName);
         }
         s.setGender(newGender);
-        if (newAge!=0) {
-        s.setAge(newAge);
+        if (newAge != 0) {
+            s.setAge(newAge);
         }
         if (!newEmail.isBlank()) {
-        s.setEmail(newEmail);
+            s.setEmail(newEmail);
         }
         em.getTransaction().commit();
         em.close();

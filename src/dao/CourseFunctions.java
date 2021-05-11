@@ -26,6 +26,8 @@ public class CourseFunctions {
     public static void updateCourse() {
         System.out.print("ID:");
         int id = readInt();
+        boolean idExist = courseDao.showCourseInfo(id);
+        if (idExist){
         System.out.println("Press enter to leave field unchanged!");
         System.out.print("New course name:");
         String newName = sc.nextLine();
@@ -33,6 +35,7 @@ public class CourseFunctions {
         System.out.print("New course credit:");
         int newCredit = readInt();
         courseDao.updateCourse(id, newName, newCredit);
+        }
     }
 
     public static void addCourse() {

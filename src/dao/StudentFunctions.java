@@ -27,7 +27,8 @@ public class StudentFunctions {
     public static void updateStudent() {
         System.out.print("ID:");
         int id = readInt();
-        studentDao.showStudent(id);
+        boolean idExist = studentDao.showStudent(id);
+        if (idExist){
         System.out.println("Press enter to leave field unchanged!");
         System.out.print("New student name:");
         String newName = sc.nextLine();
@@ -41,6 +42,7 @@ public class StudentFunctions {
         System.out.print("New student e-mail:");
         String newEmail = sc.nextLine();
         studentDao.updateStudent(id, newName, newGender, newAge, newEmail);
+        }
     }
 
     public static void addStudent() {

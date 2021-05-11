@@ -35,12 +35,14 @@ public class EducationFunctions {
     public static void updateEducation() {
         System.out.print("ID:");
         int id = readInt();
-
+        boolean idExist = educationDao.showEducationInfo(id);
+        if (idExist){
         System.out.println("Press enter to leave field unchanged!");
         System.out.print("Name:");
         String newName = sc.nextLine();
 
         educationDao.updateEducation(id, newName);
+        }
     }
 
 }
