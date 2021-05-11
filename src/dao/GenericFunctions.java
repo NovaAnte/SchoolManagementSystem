@@ -9,57 +9,81 @@ public class GenericFunctions {
     }
 
     public static void showAllTeachersInCourse() {
-        System.out.println("ID:");
+        System.out.println("Course ID:");
         int id = sc.nextInt();
         sc.nextLine();
         genericDao.showAllTeachersInCourse(id);
     }
 
     public static void disconnectTeacherFromCourse() {
-        System.out.println("ID of teacher:");
+        System.out.println("Teacher ID:");
         int teacherId = sc.nextInt();
         sc.nextLine();
-        System.out.println("ID of course:");
+        System.out.println("Course ID:");
         int courseId = sc.nextInt();
         sc.nextLine();
         genericDao.disconnectTeacherFromCourse(teacherId, courseId);
     }
 
     public static void connectTeacherToCourse() {
-        System.out.println("ID of teacher:");
+        System.out.println("Teacher ID:");
         int teacherId = sc.nextInt();
         sc.nextLine();
-        System.out.println("ID of course:");
+        System.out.println("Course ID:");
         int courseId = sc.nextInt();
         sc.nextLine();
         genericDao.connectTeacherToCourse(teacherId, courseId);
     }
 
     public static void showAllStudentsInEducation() {
-        System.out.println("ID of education:");
+        System.out.println("Education ID:");
         int eduId = sc.nextInt();
         sc.nextLine();
         genericDao.showAllStudentsInEducation(eduId);
     }
 
     public static void disconnectStudentFromEducation() {
-//        genericDao.disconnectStudentFromEducation();
+        System.out.println("Student ID:");
+        int stuId = sc.nextInt();
+        sc.nextLine();
+        genericDao.disconnectStudentFromEducation(stuId);
     }
 
     public static void connectStudentToEducation() {
-//        genericDao.connectStudentToEducation();
+        System.out.println("Student ID:");
+        int stuId = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Education ID:");
+        int eduId = sc.nextInt();
+        sc.nextLine();
+        genericDao.connectStudentToEducation(stuId, eduId);
     }
 
     public static void disconnectCourseFromEducation() {
-//        genericDao.disconnectCourseFromEducation();
+        System.out.println("Course ID:");
+        int courseId = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Education ID:");
+        int eduId = sc.nextInt();
+        sc.nextLine();
+        genericDao.disconnectCourseFromEducation(courseId, eduId);
     }
 
     public static void showAllCoursesInEducation() {
-//        genericDao.showAllCoursesInEducation();
+        System.out.println("Education ID:");
+        int eduId = sc.nextInt();
+        sc.nextLine();
+        genericDao.showAllCoursesInEducation(eduId);
     }
 
     public static void connectCourseToEducation() {
-//        genericDao.connectCourseToEducation();
+        System.out.println("Course ID:");
+        int courseId = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Education ID:");
+        int eduId = sc.nextInt();
+        sc.nextLine();
+        genericDao.connectCourseToEducation(courseId, eduId);
     }
 
 
