@@ -13,6 +13,25 @@ public class TeacherDao {
 
     
     
+    void removeTeacher( int id) {
+        
+        EntityManager em = emf.createEntityManager();
+        Teacher teacher = em.find(Teacher.class, id);
+        
+        if(teacher == null) {
+            
+            System.out.println("No such Teacher!");
+            
+        } else {
+           
+            em.getTransaction().begin();
+            em.remove(teacher);
+            em.getTransaction().commit();
+            
+        }
+        em.close();  
+    }
+    
     void addTeacher(String name, String gender, double salary, int age, String email) {
         
         EntityManager em = emf.createEntityManager();

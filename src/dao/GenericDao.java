@@ -1,9 +1,15 @@
 package dao;
 
+import java.text.DecimalFormat;
+import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import schoolmanagementsystem.domain.Course;
 import schoolmanagementsystem.domain.Education;
@@ -124,6 +130,47 @@ public class GenericDao {
         edu.setTotalCredit();
         em.getTransaction().commit();
         em.close();
+    }
+
+    void showStatistics() {
+        EntityManager em = emf.createEntityManager();
+        DecimalFormat df = new DecimalFormat("#.##");
+        TypedQuery<Student> x = em.createQuery("SELECT a FROM Student a", Student.class);
+
+        // --- Gender Statistics --- //
+        System.out.println("===== Gender Statistics =====");
+        List<Student> allStudents = x.getResultStream()
+                .collect(Collectors.toList());
+
+        if (!allStudents.isEmpty()) {
+
+            // Percentage of female students
+            List<Student> femaleStudents = x.getResultStream()
+                    .filter(x1 -> x1.getGender().equals("Female"))
+                    .collect(Collectors.toList());
+
+            double sumFemaleStudents = ((double) femaleStudents.size() / allStudents.size()) * 100;
+            System.out.println(df.format(sumFemaleStudents) + "% of the students are female");
+
+            // Percentage of male students
+            List<Student> maleStudents = x.getResultStream()
+                    .filter(x2 -> x2.getGender().equals("Male"))
+                    .collect(Collectors.toList());
+
+            double sumMaleStudents = ((double) maleStudents.size() / allStudents.size()) * 100;
+            System.out.println(df.format(sumMaleStudents) + "% of the students are male");
+
+            // Percentage of non-binary students
+            List<Student> nonBinaryStudents = x.getResultStream()
+                    .filter(x3 -> x3.getGender().equals("Unknown"))
+                    .collect(Collectors.toList());
+
+            double sumNonBinaryStudents = ((double) nonBinaryStudents.size() / allStudents.size()) * 100;
+            System.out.println(df.format(sumNonBinaryStudents) + "% of the students are non-binary");
+
+        } else {
+            System.out.println("There are no students!");
+        }
     }
 
 }

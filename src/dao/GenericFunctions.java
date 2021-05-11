@@ -5,7 +5,7 @@ import static schoolmanagementsystem.SchoolManagementSystem.sc;
 public class GenericFunctions {
     static GenericDao genericDao = new GenericDao();
     public static void showStatistics() {
-//        genericDao.showStatistics();
+        genericDao.showStatistics();
     }
 
     public static void showAllTeachersInCourse() {
