@@ -47,23 +47,29 @@ public class StudentDao {
 
     void updateStudent(int id, String newName, String newGender, int newAge, String newEmail) {
         EntityManager em = emf.createEntityManager();
-        
+
         Student s = em.find(Student.class, id);
-        
+
         em.getTransaction().begin();
-        s.setName(newName);
+        if (!newName.isBlank()) {
+            s.setName(newName);
+        }
         s.setGender(newGender);
+        if (newAge!=0) {
         s.setAge(newAge);
+        }
+        if (!newEmail.isBlank()) {
         s.setEmail(newEmail);
+        }
         em.getTransaction().commit();
-        em.close();        
+        em.close();
     }
 
     void addStudent(String name, String gender, int age, String email) {
         EntityManager em = emf.createEntityManager();
-        
+
         Student s = new Student(name, gender, age, email);
-        
+
         em.getTransaction().begin();
         em.persist(s);
         em.getTransaction().commit();

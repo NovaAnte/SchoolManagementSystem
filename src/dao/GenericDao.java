@@ -93,8 +93,10 @@ public class GenericDao {
 
         em.getTransaction().begin();
         edu.removeCourse(c);
+        edu.setTotalCredit();
         em.getTransaction().commit();
         em.close();
+
     }
 
     void showAllCoursesInEducation(int eduId) {
@@ -119,6 +121,7 @@ public class GenericDao {
 
         em.getTransaction().begin();
         edu.addCourse(c);
+        edu.setTotalCredit();
         em.getTransaction().commit();
         em.close();
     }

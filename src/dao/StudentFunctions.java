@@ -28,12 +28,16 @@ public class StudentFunctions {
         System.out.println("ID:");
         int id = readInt();
         studentDao.showStudent(id);
+        System.out.println("Press enter to leave field unchanged!");
         System.out.println("New student name:");
         String newName = sc.nextLine();
+        System.out.println("Press enter to leave field unchanged!");
         System.out.println("New student gender: ");
         String newGender = inputGender();
+        System.out.println("Press enter to leave field unchanged!");
         System.out.println("New student age:");
         int newAge = readInt();
+        System.out.println("Press enter to leave field unchanged!");
         System.out.println("New student e-mail:");
         String newEmail = sc.nextLine();
         studentDao.updateStudent(id, newName, newGender, newAge, newEmail);
