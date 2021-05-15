@@ -15,10 +15,11 @@ public class CourseDao {
         EntityManager em = emf.createEntityManager();
 
         Course c = em.find(Course.class, id);
-
+        
         em.getTransaction().begin();
         if (c != null) {
             em.remove(c);
+            c.getEducation().setTotalCredit();
             em.getTransaction().commit();
         } else {
             System.out.println("No course found with that ID.");
