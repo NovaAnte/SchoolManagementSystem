@@ -5,30 +5,36 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import schoolmanagementsystem.domain.Course;
 import schoolmanagementsystem.domain.Education;
 
 public class EducationDao {
-
+    
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
-
+    
     void addEducation(String name) {
         EntityManager em = emf.createEntityManager();
-
+        
         Education e = new Education(name);
-
+        
         em.getTransaction().begin();
         em.persist(e);
         em.getTransaction().commit();
         em.close();
     }
-
+    
     void removeEducation(int id) {
         EntityManager em = emf.createEntityManager();
-
+        
         Education e = em.find(Education.class, id);
+        TypedQuery<Course> course = em.createQuery("SELECT a FROM Course a", Course.class);
+        List<Course> x = course.getResultList();
         em.getTransaction().begin();
-
+        
         if (e != null) {
+            for (Course c : x) {
+                e.removeCourse(c);
+            }
             em.remove(e);
             em.getTransaction().commit();
         } else {
@@ -36,13 +42,13 @@ public class EducationDao {
         }
         em.close();
     }
-
+    
     void showAllEducations() {
         EntityManager em = emf.createEntityManager();
-
+        
         TypedQuery<Education> query = em.createQuery("SELECT e FROM Education e", Education.class);
         List<Education> educations = query.getResultList();
-
+        
         if (educations.isEmpty()) {
             System.out.println("No educations added yet!");
         } else {
@@ -52,10 +58,10 @@ public class EducationDao {
         }
         em.close();
     }
-
+    
     void updateEducation(int id, String newName) {
         EntityManager em = emf.createEntityManager();
-
+        
         Education e = em.find(Education.class, id);
         if (e != null) {
             em.getTransaction().begin();
@@ -68,10 +74,10 @@ public class EducationDao {
         }
         em.close();
     }
-
+    
     boolean showEducationInfo(int id) {
         EntityManager em = emf.createEntityManager();
-
+        
         Education e = em.find(Education.class, id);
         if (e != null) {
             System.out.println(e);
@@ -82,5 +88,5 @@ public class EducationDao {
         em.close();
         return false;
     }
-
+    
 }
