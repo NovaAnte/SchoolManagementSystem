@@ -76,6 +76,7 @@ public class Education {
     }
 
     public void removeCourse(Course course) {
+        setCourses(null);
         getCourses().remove(course);
         course.setEducation(null);
     }

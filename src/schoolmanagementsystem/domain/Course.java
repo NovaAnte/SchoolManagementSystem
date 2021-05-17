@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -24,6 +25,7 @@ public class Course {
     private Education education;
     @ManyToMany(mappedBy = "courses")
     private List<Teacher> teachers;
+    @Basic (fetch = FetchType.EAGER)
     private List<String> teacherNames;
 
     public Course() {
@@ -97,6 +99,7 @@ public class Course {
 
     @Override
     public String toString() {
+        setTeachersNames(teachers);
         return "Course{" + "id=" + id + ", name=" + name + ", credit=" + credit + ", teachers=" + teacherNames + '}';
     }
 
